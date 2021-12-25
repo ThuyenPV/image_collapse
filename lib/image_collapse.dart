@@ -136,7 +136,11 @@ class _ImageCollapseState extends State<ImageCollapse> {
             alignment: Alignment.center,
             child: Text(
               "+$remainNumberImage",
-              style: widget.remainNumberStyle,
+              style: widget.remainNumberStyle ??
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                  ),
             ),
           ),
         ],
@@ -152,7 +156,8 @@ class _ImageCollapseState extends State<ImageCollapse> {
           appBarColor: widget.appBarColor,
           titleGallery: widget.titleGallery,
           galleryItem: _galleryItems,
-          backgroundDecoration: widget.backgroundImageView,
+          backgroundDecoration: widget.backgroundImageView ??
+              const BoxDecoration(color: Color(0xff374056)),
           initialIndex: indexOfImage,
           scrollDirection: Axis.horizontal,
         );

@@ -42,19 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Color(0xff374056),
         title: Text(widget.title),
       ),
       body: Center(
         child: ImageCollapse(
           imageUrls: listOfUrls,
-          remainNumberStyle: TextStyle(
-            color: Colors.white,
-            fontSize: 28,
-          ),
-          backgroundImageView: const BoxDecoration(
-            color: Color(0xff374056),
-          ),
         ),
       ),
     );
