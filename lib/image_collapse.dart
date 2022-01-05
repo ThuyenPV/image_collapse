@@ -7,6 +7,11 @@ import 'package:image_collapse/gallery_item.dart';
 import 'package:image_collapse/gallery_view_wrapper.dart';
 import 'package:image_collapse/gallery_thumbnail.dart';
 
+enum DisplayType {
+  ListView,
+  StaggeredGridView,
+}
+
 class ImageCollapse extends StatefulWidget {
   final List<String> imageUrls;
   final String? titleGallery;
@@ -17,6 +22,9 @@ class ImageCollapse extends StatefulWidget {
   final BoxDecoration? backgroundImageView;
   final Color? fadingColorCollapse;
   final Color? appBarColor;
+  final DisplayType displayType;
+  final Size imageSize;
+  final EdgeInsetsGeometry? padding;
 
   const ImageCollapse({
     Key? key,
@@ -29,6 +37,9 @@ class ImageCollapse extends StatefulWidget {
     this.backgroundImageView,
     this.fadingColorCollapse,
     this.appBarColor,
+    this.displayType = DisplayType.StaggeredGridView,
+    this.imageSize = const Size(double.infinity, 150),
+    this.padding,
   }) : super(key: key);
 
   @override
@@ -38,6 +49,7 @@ class ImageCollapse extends StatefulWidget {
 class _ImageCollapseState extends State<ImageCollapse> {
   static const NUM_IMAGE_COLLAPSE = 4;
   static final List<GalleryItem> _galleryItems = <GalleryItem>[];
+  static const MAX_LOAD_MORE = 10;
 
   @override
   void initState() {
@@ -66,32 +78,53 @@ class _ImageCollapseState extends State<ImageCollapse> {
 
   Widget _buildImageCollapses() {
     int imageUrlsLength = widget.imageUrls.length;
-    return StaggeredGridView.countBuilder(
-      crossAxisCount: widget.crossAxisCount,
-      mainAxisSpacing: widget.mainAxisSpacing,
-      crossAxisSpacing: widget.crossAxisSpacing,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.only(top: 12, bottom: 16),
-      itemCount: imageUrlsLength > NUM_IMAGE_COLLAPSE
-          ? NUM_IMAGE_COLLAPSE
-          : imageUrlsLength,
-      itemBuilder: (context, int index) {
-        return Container(
-          height: 252,
-          child: imageUrlsLength > NUM_IMAGE_COLLAPSE && index == 3
-              ? buildImageNumbers(context, index)
-              : GalleryThumbnail(
-                  galleryItem: _galleryItems[index],
-                  onTap: () => openImageFullScreen(context, index),
-                ),
+    switch (widget.displayType) {
+      case DisplayType.ListView:
+        return ListView.builder(
+          itemCount: imageUrlsLength,
+          padding: widget.padding,
+          itemBuilder: (context, index) {
+            return Card(
+                    child: Container(
+                      height: widget.imageSize.height,
+                      width: widget.imageSize.width,
+                      child: GalleryThumbnail(
+                        galleryItem: _galleryItems[index],
+                        onTap: () => openImageFullScreen(context, index),
+                      ),
+                    ),
+                  );
+          },
         );
-      },
-      staggeredTileBuilder: (int index) => StaggeredTile.count(
-        crossAxisCellCount(imageUrlsLength, index),
-        mainAxisCellCount(imageUrlsLength, index),
-      ),
-    );
+      case DisplayType.StaggeredGridView:
+      default:
+        return StaggeredGridView.countBuilder(
+          crossAxisCount: widget.crossAxisCount,
+          mainAxisSpacing: widget.mainAxisSpacing,
+          crossAxisSpacing: widget.crossAxisSpacing,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.only(top: 12, bottom: 16),
+          itemCount: imageUrlsLength > NUM_IMAGE_COLLAPSE
+              ? NUM_IMAGE_COLLAPSE
+              : imageUrlsLength,
+          itemBuilder: (context, int index) {
+            return Container(
+              height: 252,
+              child: imageUrlsLength > NUM_IMAGE_COLLAPSE && index == 3
+                  ? buildImageNumbers(context, index)
+                  : GalleryThumbnail(
+                      galleryItem: _galleryItems[index],
+                      onTap: () => openImageFullScreen(context, index),
+                    ),
+            );
+          },
+          staggeredTileBuilder: (int index) => StaggeredTile.count(
+            crossAxisCellCount(imageUrlsLength, index),
+            mainAxisCellCount(imageUrlsLength, index),
+          ),
+        );
+    }
   }
 
   int crossAxisCellCount(int length, int index) {

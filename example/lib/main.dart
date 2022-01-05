@@ -49,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: ImageCollapse(
           imageUrls: listOfUrls,
+          displayType: DisplayType.ListView,
         ),
       ),
     );
