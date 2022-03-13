@@ -29,13 +29,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static const List<String> listOfUrls = [
-    "https://cosmosmagazine.com/wp-content/uploads/2020/02/191010_nature.jpg",
-    "https://scx2.b-cdn.net/gfx/news/hires/2019/2-nature.jpg",
-    "https://isha.sadhguru.org/blog/wp-content/uploads/2016/05/natures-temples.jpg",
-    "https://cosmosmagazine.com/wp-content/uploads/2020/02/191010_nature.jpg",
-    "https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?size=626&ext=jpg",
-    "https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg",
-    "https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105__480.png",
+    "https://img.pikbest.com/01/69/01/65WpIkbEsTQfU.jpg-0.jpg!bw340",
+    "https://img.pikbest.com/png-images/plane-flying-on-location-and-map-with-forest-element_1493374.png!bw340",
+    "https://img.pikbest.com/05/81/63/10VpIkbEsT5s3.jpg-0.jpg!bw340",
+    "https://img.pikbest.com/01/42/43/44apIkbEsT5gu.jpg-0.jpg!bw340",
+    "https://img.pikbest.com/pikbest/pic/00/32/88/08I888piCYQN.jpg-0.jpg!bw340",
   ];
 
   @override
@@ -49,7 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: ImageCollapse(
           imageUrls: listOfUrls,
-          displayType: DisplayType.ListView,
         ),
       ),
     );

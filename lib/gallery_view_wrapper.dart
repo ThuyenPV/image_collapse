@@ -5,6 +5,7 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+import 'gallery_app_bar.dart';
 import 'gallery_item.dart';
 
 class GalleryViewWrapper extends StatefulWidget {
@@ -38,22 +39,9 @@ class _GalleryViewWrapperState extends State<GalleryViewWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          padding: const EdgeInsets.all(0),
-          icon: BackButtonIcon(),
-          color: Colors.white,
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        backgroundColor: widget.appBarColor ?? Color(0xff374056),
-        title: Text(
-          widget.titleGallery ?? 'Gallery',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
+      appBar: GalleryAppBar(
+        title: widget.titleGallery,
+        color: widget.appBarColor,
       ),
       body: Container(
         decoration: widget.backgroundDecoration,
@@ -62,7 +50,7 @@ class _GalleryViewWrapperState extends State<GalleryViewWrapper> {
         ),
         child: PhotoViewGallery.builder(
           scrollPhysics: const BouncingScrollPhysics(),
-          builder: _buildImage,
+          builder: _buildPhotoViewGallery,
           itemCount: widget.galleryItem.length,
           loadingBuilder: widget.loadingBuilder,
           backgroundDecoration: widget.backgroundDecoration,
@@ -73,15 +61,15 @@ class _GalleryViewWrapperState extends State<GalleryViewWrapper> {
     );
   }
 
-  PhotoViewGalleryPageOptions _buildImage(BuildContext context, int index) {
-    final gallery = widget.galleryItem[index];
+  PhotoViewGalleryPageOptions _buildPhotoViewGallery(BuildContext context, int index) {
+    final galleryAtr = widget.galleryItem[index];
     return PhotoViewGalleryPageOptions.customChild(
       minScale: minScale,
       maxScale: maxScale,
       initialScale: PhotoViewComputedScale.contained,
-      heroAttributes: PhotoViewHeroAttributes(tag: gallery.id),
+      heroAttributes: PhotoViewHeroAttributes(tag: galleryAtr.id),
       child: CachedNetworkImage(
-        imageUrl: gallery.imageUrl,
+        imageUrl: galleryAtr.imageUrl,
         placeholder: (_, __) => const CupertinoActivityIndicator(),
         errorWidget: (context, url, error) => Icon(Icons.error),
       ),
