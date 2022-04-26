@@ -13,9 +13,9 @@ String? mime(String? fileName) {
     return null;
   }
 
-  final int lastDot = fileName.lastIndexOf('.', fileName.length - 1);
+  final lastDot = fileName.lastIndexOf('.', fileName.length - 1);
   if (lastDot != -1) {
-    final String extension = fileName.substring(lastDot + 1);
+    final extension = fileName.substring(lastDot + 1);
     return _mimeMaps[extension.toLowerCase()];
   } else {
     return null;

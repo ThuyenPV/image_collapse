@@ -19,6 +19,7 @@ class GalleryViewWrapper extends StatefulWidget {
   final Color? appBarColor;
 
   GalleryViewWrapper({
+    Key? key,
     this.loadingBuilder,
     this.titleGallery,
     this.backgroundDecoration,
@@ -26,7 +27,8 @@ class GalleryViewWrapper extends StatefulWidget {
     required this.galleryItem,
     this.appBarColor,
     this.scrollDirection = Axis.horizontal,
-  }) : pageController = PageController(initialPage: initialIndex ?? 0);
+  })  : pageController = PageController(initialPage: initialIndex ?? 0),
+        super(key: key);
 
   @override
   State<StatefulWidget> createState() => _GalleryViewWrapperState();
@@ -71,7 +73,7 @@ class _GalleryViewWrapperState extends State<GalleryViewWrapper> {
       child: CachedNetworkImage(
         imageUrl: galleryAtr.imageUrl,
         placeholder: (_, __) => const CupertinoActivityIndicator(),
-        errorWidget: (context, url, error) => Icon(Icons.error),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
     );
   }

@@ -77,7 +77,7 @@ class GalleryStaggeredGridView extends StatelessWidget {
       padding: const EdgeInsets.only(top: 12, bottom: 16),
       itemCount: galleryLength > NUM_IMAGE_COLLAPSE ? NUM_IMAGE_COLLAPSE : galleryLength,
       itemBuilder: (context, int index) {
-        return Container(
+        return SizedBox(
           height: 252,
           child: galleryLength > NUM_IMAGE_COLLAPSE && index == 3
               ? GalleryRemainder(
@@ -104,11 +104,11 @@ class GalleryStaggeredGridView extends StatelessWidget {
   }
 
   int crossAxisCellCount(int length, int index) {
-    if (length == 1)
+    if (length == 1) {
       return 6;
-    else if (length == 2)
+    } else if (length == 2) {
       return 3;
-    else if (length == 3) {
+    } else if (length == 3) {
       if (index < 1) return 6;
       return 3;
     } else {
@@ -130,7 +130,7 @@ class GalleryStaggeredGridView extends StatelessWidget {
     context,
     int indexOfImage,
   ) {
-    int remainNumber = galleryList.length - indexOfImage;
+    var remainNumber = galleryList.length - indexOfImage;
     return GestureDetector(
       onTap: () => onTapFullScreenView(
         context,
@@ -148,7 +148,7 @@ class GalleryStaggeredGridView extends StatelessWidget {
             color: Colors.black.withOpacity(0.7),
             alignment: Alignment.center,
             child: Text(
-              "+$remainNumber",
+              '+$remainNumber',
               style: remainNumberStyle ??
                   const TextStyle(
                     color: Colors.white,

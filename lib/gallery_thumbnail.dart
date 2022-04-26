@@ -69,7 +69,7 @@ class GalleryRemainder extends StatelessWidget {
             color: Colors.black.withOpacity(0.7),
             alignment: Alignment.center,
             child: Text(
-              "+$remainNumber",
+              '+$remainNumber',
               style: remainderStyle ??
                   const TextStyle(
                     color: Colors.white,

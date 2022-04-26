@@ -57,7 +57,7 @@ class _ImageCollapseState extends State<ImageCollapse> {
   convertToGalleryModel(List<String> imageUrls) {
     _galleryItems.clear();
     var imageName, tagId;
-    imageUrls.forEach((imageUrl) {
+    for (var imageUrl in imageUrls) {
       imageName = imageUrl.split('/').last;
       tagId = DateTime.now().microsecondsSinceEpoch;
       _galleryItems.add(
@@ -66,7 +66,7 @@ class _ImageCollapseState extends State<ImageCollapse> {
           imageUrl: imageUrl,
         ),
       );
-    });
+    }
   }
 
   Widget _buildGalleryCollapse() {
@@ -90,6 +90,6 @@ class _ImageCollapseState extends State<ImageCollapse> {
 
   @override
   Widget build(BuildContext context) {
-    return _galleryItems.isEmpty ? CupertinoActivityIndicator() : _buildGalleryCollapse();
+    return _galleryItems.isEmpty ? const CupertinoActivityIndicator() : _buildGalleryCollapse();
   }
 }
