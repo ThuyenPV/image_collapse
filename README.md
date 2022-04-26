@@ -1,8 +1,8 @@
 # 👏 Gallery Collapse [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/MIT)
 
 <p align="center"> 
-<img src="https://github.com/ThuyenPV/resource-repo/blob/main/gallery_collapse/gif/d8cd7ffd0da549ce64bc55e81254e1d9.gif" height="600" alt="Screenshot">
-<img src="https://github.com/ThuyenPV/resource-repo/blob/main/gallery_collapse/gif/2344a80c0576c4ee33dd8089a5a03590.gif" height="600" alt="Screenshot">
+![fullscreen](screenshot/d8cd7ffd0da549ce64bc55e81254e1d9.gif)
+![fullscreen](screenshot/2344a80c0576c4ee33dd8089a5a03590.gif)
 </p>
 
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://ko-fi.com/zuyenz)
@@ -15,7 +15,7 @@ The source code is **100% Dart**, and everything resides in the [/lib](https://g
 
 |                                                                                                                                                          |                                                                                                                                                          |                                                                                                                                                          |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src="https://github.com/ThuyenPV/resource-repo/blob/main/gallery_collapse/gif/06e08b7805562c84edc9b2d57117a900.gif" height="400" alt="Screenshot"/> | <img src="https://github.com/ThuyenPV/resource-repo/blob/main/gallery_collapse/gif/0bc449b8e06aee0c121872e2e94109b1.gif" height="400" alt="Screenshot"/> | <img src="https://github.com/ThuyenPV/resource-repo/blob/main/gallery_collapse/gif/581a7e66420a8405c4b1ee8228ca967d.gif" height="400" alt="Screenshot"/> |
+| ![fullscreen](screenshot/06e08b7805562c84edc9b2d57117a900.gif) | ![fullscreen](screenshot/0bc449b8e06aee0c121872e2e94109b1.gif) | ![fullscreen](screenshot/581a7e66420a8405c4b1ee8228ca967d.gif)|
 |                                                                                                                                                          |                                                                                                                                                          |                                                                                                                                                          |
 
 # 💻 Installation
