@@ -1,8 +1,5 @@
 # 👏 Gallery Collapse [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/MIT)
 
-![fullscreen](screenshot/d8cd7ffd0da549ce64bc55e81254e1d9.gif)
-![fullscreen](screenshot/2344a80c0576c4ee33dd8089a5a03590.gif)
-
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://ko-fi.com/zuyenz)
 
 <p>A flutter package which display the library collapse according to the number of images associated with hero animation ...</p>
