@@ -13,7 +13,7 @@ class GalleryViewWrapper extends StatefulWidget {
   final BoxDecoration? backgroundDecoration;
   final int? initialIndex;
   final PageController pageController;
-  final List<GalleryItem> galleryItem;
+  final List<Gallery> galleryItem;
   final Axis scrollDirection;
   final String? titleGallery;
   final Color? appBarColor;
@@ -71,7 +71,7 @@ class _GalleryViewWrapperState extends State<GalleryViewWrapper> {
       initialScale: PhotoViewComputedScale.contained,
       heroAttributes: PhotoViewHeroAttributes(tag: galleryAtr.id),
       child: CachedNetworkImage(
-        imageUrl: galleryAtr.imageUrl,
+        imageUrl: galleryAtr.url,
         placeholder: (_, __) => const CupertinoActivityIndicator(),
         errorWidget: (context, url, error) => const Icon(Icons.error),
       ),

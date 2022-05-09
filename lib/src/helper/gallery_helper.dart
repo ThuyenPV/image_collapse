@@ -3,8 +3,12 @@ import 'dart:collection';
 /// From https://pub.dev/packages/mime_type package
 ///
 bool isImage(String? path) {
-  final mimeType = mime(path);
-  return mimeType!.startsWith('image/');
+  if (path != null) {
+    final mimeType = mime(path);
+    if(mimeType == null) return false;
+    return mimeType.startsWith('image/');
+  }
+  return false;
 }
 
 /// Get MIME type from file name (returns null if there is no such extension)

@@ -12,7 +12,7 @@ class GalleryThumbnail extends StatelessWidget {
     this.onTap,
   }) : super(key: key);
 
-  final GalleryItem galleryItem;
+  final Gallery galleryItem;
   final GestureTapCallback? onTap;
 
   @override
@@ -23,7 +23,7 @@ class GalleryThumbnail extends StatelessWidget {
         tag: galleryItem.id,
         child: CachedNetworkImage(
           fit: BoxFit.cover,
-          imageUrl: galleryItem.imageUrl,
+          imageUrl: galleryItem.url,
           placeholder: (_, __) => const CupertinoActivityIndicator(),
           errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
@@ -41,7 +41,7 @@ class GalleryRemainder extends StatelessWidget {
     required this.remainderStyle,
   }) : super(key: key);
 
-  final List<GalleryItem> galleryList;
+  final List<Gallery> galleryList;
   final int indexOfImage;
   final int remainNumber;
   final TextStyle? remainderStyle;
@@ -82,7 +82,7 @@ class GalleryRemainder extends StatelessWidget {
 void onTapFullScreenView(
   context, {
   required int indexOfImage,
-  required List<GalleryItem> galleryList,
+  required List<Gallery> galleryList,
   Color? appBarColor,
   String? titleGallery,
   BoxDecoration? backgroundDecoration,

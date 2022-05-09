@@ -15,13 +15,14 @@ class GalleryListView extends StatelessWidget {
     this.imageSize = const Size(double.infinity, 150),
   }) : super(key: key);
 
-  final List<GalleryItem> galleryList;
+  final List<Gallery> galleryList;
   final EdgeInsetsGeometry? padding;
   final Size? imageSize;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       itemCount: galleryList.length,
       padding: padding,
       itemBuilder: (context, index) {
@@ -57,7 +58,7 @@ class GalleryStaggeredGridView extends StatelessWidget {
     this.imageSize = const Size(double.infinity, 150),
   }) : super(key: key);
 
-  final List<GalleryItem> galleryList;
+  final List<Gallery> galleryList;
   final int crossAxisCount;
   final double mainAxisSpacing;
   final double crossAxisSpacing;
@@ -75,9 +76,7 @@ class GalleryStaggeredGridView extends StatelessWidget {
       crossAxisSpacing: crossAxisSpacing,
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.only(top: 12, bottom: 16),
-      itemCount: galleryLength > NUM_IMAGE_COLLAPSE
-          ? NUM_IMAGE_COLLAPSE
-          : galleryLength,
+      itemCount: galleryLength > NUM_IMAGE_COLLAPSE ? NUM_IMAGE_COLLAPSE : galleryLength,
       itemBuilder: (context, int index) {
         return SizedBox(
           height: 252,

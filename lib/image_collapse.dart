@@ -45,7 +45,7 @@ class ImageCollapse extends StatefulWidget {
 }
 
 class _ImageCollapseState extends State<ImageCollapse> {
-  static final _galleryItems = <GalleryItem>[];
+  static final _galleryItems = <Gallery>[];
 
   @override
   void initState() {
@@ -60,9 +60,9 @@ class _ImageCollapseState extends State<ImageCollapse> {
       imageName = imageUrl.split('/').last;
       tagId = DateTime.now().microsecondsSinceEpoch;
       _galleryItems.add(
-        GalleryItem(
+        Gallery(
           id: '$imageName-$tagId',
-          imageUrl: imageUrl,
+          url: imageUrl,
         ),
       );
     }
@@ -72,6 +72,7 @@ class _ImageCollapseState extends State<ImageCollapse> {
     switch (widget.displayType) {
       case DisplayType.ListView:
         return GalleryListView(
+          key: const ValueKey('2ff0118c-cf6b-11ec-9d64-0242ac120002'),
           galleryList: _galleryItems,
           padding: widget.padding,
           imageSize: widget.imageSize,
@@ -79,6 +80,7 @@ class _ImageCollapseState extends State<ImageCollapse> {
       case DisplayType.StaggeredGridView:
       default:
         return GalleryStaggeredGridView(
+          key: const ValueKey('7f749548-cf70-11ec-9d64-0242ac120002'),
           galleryList: _galleryItems,
           crossAxisCount: widget.crossAxisCount,
           mainAxisSpacing: widget.mainAxisSpacing,
@@ -89,6 +91,10 @@ class _ImageCollapseState extends State<ImageCollapse> {
 
   @override
   Widget build(BuildContext context) {
-    return _galleryItems.isEmpty ? const CupertinoActivityIndicator() : _buildGalleryCollapse();
+    return _galleryItems.isEmpty
+        ? const CupertinoActivityIndicator(
+            key: ValueKey('037a00ea-cf6b-11ec-9d64-0242ac120002'),
+          )
+        : _buildGalleryCollapse();
   }
 }

@@ -1,9 +1,9 @@
-class GalleryItem {
-  GalleryItem({
+class Gallery {
+  Gallery({
     required this.id,
-    required this.imageUrl,
+    required this.url,
   });
 
   final String id;
-  final String imageUrl;
+  final String url;
 }
