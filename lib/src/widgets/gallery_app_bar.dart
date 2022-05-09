@@ -30,6 +30,6 @@ class GalleryAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: Colors.white,
         ),
       ),
-    ); // Your custom widget implementation.
+    );
   }
 }

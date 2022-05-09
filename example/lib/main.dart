@@ -29,7 +29,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static const List<String> listOfUrls = [
-    "https://img.pikbest.com/01/69/01/65WpIkbEsTQfU.jpg-0.jpg!bw340",
     "https://img.pikbest.com/png-images/plane-flying-on-location-and-map-with-forest-element_1493374.png!bw340",
     "https://img.pikbest.com/05/81/63/10VpIkbEsT5s3.jpg-0.jpg!bw340",
     "https://img.pikbest.com/01/42/43/44apIkbEsT5gu.jpg-0.jpg!bw340",
@@ -44,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color(0xff374056),
         title: Text(widget.title),
       ),
-      body: Center(
+      body: const Center(
         child: ImageCollapse(
           imageUrls: listOfUrls,
         ),

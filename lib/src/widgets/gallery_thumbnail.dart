@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_collapse/gallery_item.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:image_collapse/src/model/gallery_item.dart';
 
-import 'gallery_helper.dart';
 import 'gallery_view_wrapper.dart';
 
 class GalleryThumbnail extends StatelessWidget {
@@ -22,14 +21,11 @@ class GalleryThumbnail extends StatelessWidget {
       onTap: onTap,
       child: Hero(
         tag: galleryItem.id,
-        child: Visibility(
-          visible: isImage(galleryItem.imageUrl),
-          child: CachedNetworkImage(
-            fit: BoxFit.cover,
-            imageUrl: galleryItem.imageUrl,
-            placeholder: (_, __) => const CupertinoActivityIndicator(),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
-          ),
+        child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          imageUrl: galleryItem.imageUrl,
+          placeholder: (_, __) => const CupertinoActivityIndicator(),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
       ),
     );
