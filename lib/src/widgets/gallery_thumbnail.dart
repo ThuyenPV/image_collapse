@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:image_collapse/src/model/gallery_item.dart';
+import 'package:image_collapse/src/model/gallery.dart';
 
 import 'gallery_view_wrapper.dart';
 

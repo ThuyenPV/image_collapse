@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:image_collapse/src/model/gallery_item.dart';
+import 'package:image_collapse/src/core/app_constant.dart';
+import 'package:image_collapse/src/model/gallery.dart';
 import 'package:image_collapse/src/widgets/gallery_thumbnail.dart';
-
-const NUM_IMAGE_COLLAPSE = 4;
 
 /// ListView type
 class GalleryListView extends StatelessWidget {
@@ -76,13 +74,13 @@ class GalleryStaggeredGridView extends StatelessWidget {
       crossAxisSpacing: crossAxisSpacing,
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.only(top: 12, bottom: 16),
-      itemCount: galleryLength > NUM_IMAGE_COLLAPSE ? NUM_IMAGE_COLLAPSE : galleryLength,
+      itemCount: galleryLength > AppConstant.NUM_IMAGE_COLLAPSE ? AppConstant.NUM_IMAGE_COLLAPSE : galleryLength,
       itemBuilder: (context, int index) {
         return SizedBox(
           height: 252,
-          child: galleryLength > NUM_IMAGE_COLLAPSE && index == 3
+          child: galleryLength > AppConstant.NUM_IMAGE_COLLAPSE && index == 3
               ? GalleryRemainder(
-                  remainNumber: galleryLength - NUM_IMAGE_COLLAPSE + 1,
+                  remainNumber: galleryLength - AppConstant.NUM_IMAGE_COLLAPSE + 1,
                   indexOfImage: index,
                   remainderStyle: remainNumberStyle,
                   galleryList: galleryList,

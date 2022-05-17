@@ -6,7 +6,7 @@ import 'package:photo_view/photo_view_gallery.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'gallery_app_bar.dart';
-import '../model/gallery_item.dart';
+import '../model/gallery.dart';
 
 class GalleryViewWrapper extends StatefulWidget {
   final LoadingBuilder? loadingBuilder;

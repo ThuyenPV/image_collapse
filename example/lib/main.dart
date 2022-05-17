@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Gallery Collapse',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -43,10 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: const Color(0xff374056),
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          key: const Key('title_key'),
+        ),
       ),
       body: const Center(
         child: ImageCollapse(
+          key: const Key('image_collapse_key'),
           imageUrls: listOfUrls,
         ),
       ),
