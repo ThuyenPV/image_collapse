@@ -1,6 +1,6 @@
 name: image_collapse
 description: A flutter package which display the library collapse according to the number of images associated with hero animation ...
-version: 0.0.3
+version: 1.0.1
 repository: https://github.com/ThuyenPV/image_collapse
 issue_tracker: https://github.com/ThuyenPV/image_collapse/issues
 homepage: https://github.com/ThuyenPV/image_collapse
@@ -13,11 +13,14 @@ dependencies:
   flutter_staggered_grid_view: ^0.4.1
   cached_network_image: ^3.2.0
   photo_view: ^0.13.0
+  flutter_gherkin: ^2.0.0
+
   flutter:
     sdk: flutter
 
 dev_dependencies:
   flutter_lints: ^1.0.4
+  golden_toolkit: ^0.13.0
   flutter_test:
     sdk: flutter
 

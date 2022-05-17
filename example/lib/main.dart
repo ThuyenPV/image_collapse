@@ -2,24 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:image_collapse/image_collapse.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Gallery Collapse',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Gallery Collapse'),
+      home: const MyHomePage(title: 'Gallery Collapse'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -40,11 +43,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color(0xff374056),
-        title: Text(widget.title),
+        backgroundColor: const Color(0xff374056),
+        title: Text(
+          widget.title,
+          key: const Key('title_key'),
+        ),
       ),
       body: const Center(
         child: ImageCollapse(
+          key: const Key('image_collapse_key'),
           imageUrls: listOfUrls,
         ),
       ),

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-const String GALLERY = 'Gallery';
+import 'package:image_collapse/src/core/app_constant.dart';
 
 class GalleryAppBar extends StatelessWidget implements PreferredSizeWidget {
   const GalleryAppBar({
-    this.title = GALLERY,
+    this.title = AppConstant.APP_NAME,
     this.color,
   });
 

@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart';
 
 import 'package:image_collapse/image_collapse.dart';
 import 'package:image_collapse/src/helper/gallery_helper.dart';
 
+/// Unit Testing
 void main() {
   group(
     'Given Initial Screen When Image Loaded',
@@ -61,6 +63,28 @@ void main() {
         () {
           final isValidUrl = isImage('application/vnd.lotus-1-2-3');
           expect(isValidUrl, false);
+        },
+      );
+    },
+  );
+
+  group(
+    'Given isImage function when is running',
+    () {
+      testGoldens(
+        'then the images should be render exactly',
+        (tester) async {
+          /// ARRANGE
+          await tester.pumpWidgetBuilder(
+            const ImageCollapse(
+              imageUrls: [
+                "https://img.pikbest.com/05/81/63/10VpIkbEsT5s3.jpg-0.jpg!bw340",
+              ],
+            ),
+          );
+
+          /// ASSERT
+          await screenMatchesGolden(tester, 'collapse_image');
         },
       );
     },
